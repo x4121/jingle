@@ -3,6 +3,7 @@ defmodule Mix.Tasks.Jingle.Seeds do
   alias Jingle.{Event, Repo, Sound, Notification}
 
   def run(_) do
+    # Mix.Task.run("app.start", [])
     Jingle.start(nil, nil)
     seed(Mix.env)
   end

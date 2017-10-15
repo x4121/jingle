@@ -17,8 +17,8 @@ defmodule Jingle.Notification do
 
   def raise(%Notification{} = notification) do
     (from s in Sound,
-     join: ns in assoc(s, :notifications),
-     where: ns.notification_id == ^notification.id,
+     join: n in assoc(s, :notifications),
+     where: n.id == ^notification.id,
      select: s)
      |> Repo.all
      |> Enum.random
