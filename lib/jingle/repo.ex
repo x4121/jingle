@@ -1,3 +1,11 @@
 defmodule Jingle.Repo do
-  use Ecto.Repo, otp_app: :jingle, adapter: Sqlite.Ecto2
+  use Ecto.Repo, otp_app: :jingle
+
+  @doc """
+  Dynamically loads the repository url from the
+  DATABASE_URL environment variable.
+  """
+  def init(_, opts) do
+    {:ok, Keyword.put(opts, :url, System.get_env("DATABASE_URL"))}
+  end
 end

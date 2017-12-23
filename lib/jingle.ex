@@ -1,14 +1,9 @@
 defmodule Jingle do
-  use Application
+  @moduledoc """
+  Jingle keeps the contexts that define your domain
+  and business logic.
 
-  def start(_type, _args) do
-    import Supervisor.Spec, warn: false
-
-    children = [
-      worker(Jingle.Repo, [])
-    ]
-
-    opts = [strategy: :one_for_one, name: Jingle.Supervisor]
-    Supervisor.start_link(children, opts)
-  end
+  Contexts are also responsible for managing your data, regardless
+  if it comes from the database, an external API or others.
+  """
 end
